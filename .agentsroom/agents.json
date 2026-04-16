@@ -1,7 +1,7 @@
 [
   {
     "role": "mobile",
-    "model": "opus",
+    "model": "sonnet",
     "customName": "Mobile Developer",
     "isPersonal": false,
     "id": "agent-1776367978358-9qu9vo",
