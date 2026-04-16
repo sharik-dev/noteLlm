@@ -18,8 +18,8 @@
   },
   {
     "role": "architect",
-    "model": "opus",
-    "provider": "aider",
+    "model": "anthropic/claude-sonnet-4-20250514",
+    "provider": "opencode",
     "customName": "Software Architect",
     "isPersonal": false,
     "id": "agent-1776369257397-sps88l"
