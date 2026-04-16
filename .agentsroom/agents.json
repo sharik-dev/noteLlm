@@ -27,7 +27,7 @@
   },
   {
     "role": "pm",
-    "model": "codex-mini-latest",
+    "model": "o3",
     "provider": "codex",
     "customName": "Project Manager",
     "isPersonal": false,
