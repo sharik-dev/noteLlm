@@ -18,10 +18,11 @@
   },
   {
     "role": "architect",
-    "model": "opus",
+    "model": "haiku",
     "provider": "claude",
     "customName": "Software Architect",
     "isPersonal": false,
-    "id": "agent-1776369257397-sps88l"
+    "id": "agent-1776369257397-sps88l",
+    "claudeSessionId": "8a3b0ae9-bcfa-47b0-9cab-2e514c486f55"
   }
 ]
