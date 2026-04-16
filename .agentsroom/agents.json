@@ -24,5 +24,13 @@
     "isPersonal": false,
     "id": "agent-1776369257397-sps88l",
     "claudeSessionId": "8a3b0ae9-bcfa-47b0-9cab-2e514c486f55"
+  },
+  {
+    "role": "pm",
+    "model": "codex-mini-latest",
+    "provider": "codex",
+    "customName": "Project Manager",
+    "isPersonal": false,
+    "id": "agent-1776370584109-ea8kvg"
   }
 ]
