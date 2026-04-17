@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		427DAB578D08980E71C04AF8 /* noteLlmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CD21203C6CE734286EE195 /* noteLlmApp.swift */; };
 		6DFB59949CCCE2AF97A96734 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4BB0259D7A896B140FE04A /* Preview Assets.xcassets */; };
+		98F1FEBC2F92B3DF0048E054 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F1FEBB2F92B3DF0048E054 /* WidgetKit.framework */; };
+		98F1FEBE2F92B3DF0048E054 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F1FEBD2F92B3DF0048E054 /* SwiftUI.framework */; };
+		98F1FECB2F92B3E00048E054 /* noteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98F1FEB92F92B3DF0048E054 /* noteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BB0001000000000000000001 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001000000000000000001 /* AppState.swift */; };
 		BB0002000000000000000001 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000001 /* Note.swift */; };
 		BB0003000000000000000001 /* LLMServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0003000000000000000001 /* LLMServiceProtocol.swift */; };
@@ -28,11 +31,40 @@
 		EF9ADF4FF18361459A5B55E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939AE8E017851F3174FA386 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		98F1FEC92F92B3E00048E054 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22023131B197D94B570AB7A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98F1FEB82F92B3DF0048E054;
+			remoteInfo = noteWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98F1FECC2F92B3E00048E054 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				98F1FECB2F92B3E00048E054 /* noteWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		041A80C349E835A83C02E318 /* noteLlm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noteLlm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0939AE8E017851F3174FA386 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34CD21203C6CE734286EE195 /* noteLlmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteLlmApp.swift; sourceTree = "<group>"; };
 		75574C6C846D0AFCF19BC880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98F1FEB92F92B3DF0048E054 /* noteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = noteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F1FEBB2F92B3DF0048E054 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		98F1FEBD2F92B3DF0048E054 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		98F1FED12F92B3EE0048E054 /* noteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = noteWidgetExtension.entitlements; sourceTree = "<group>"; };
+		98F1FED22F92B3F20048E054 /* noteLlm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = noteLlm.entitlements; sourceTree = "<group>"; };
 		AA0001000000000000000001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		AA0002000000000000000001 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		AA0003000000000000000001 /* LLMServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMServiceProtocol.swift; sourceTree = "<group>"; };
@@ -49,6 +81,20 @@
 		EB4BB0259D7A896B140FE04A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		98F1FECF2F92B3E00048E054 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 98F1FEB82F92B3DF0048E054 /* noteWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		98F1FEBF2F92B3DF0048E054 /* noteWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98F1FECF2F92B3E00048E054 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = noteWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		5069DE8E5DFC97FEFC1844E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -56,6 +102,15 @@
 			files = (
 				EE0001000000000000000001 /* LocalLLMClient in Frameworks */,
 				EE0002000000000000000001 /* LocalLLMClientMLX in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98F1FEB62F92B3DF0048E054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F1FEBE2F92B3DF0048E054 /* SwiftUI.framework in Frameworks */,
+				98F1FEBC2F92B3DF0048E054 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +128,7 @@
 		323D8115E0F49B8B5DE83293 /* noteLlm */ = {
 			isa = PBXGroup;
 			children = (
+				98F1FED22F92B3F20048E054 /* noteLlm.entitlements */,
 				CC0001000000000000000001 /* App */,
 				CC0002000000000000000001 /* Models */,
 				CC0003000000000000000001 /* Services */,
@@ -89,9 +145,21 @@
 		82B079E207D4D62E801B60E2 = {
 			isa = PBXGroup;
 			children = (
+				98F1FED12F92B3EE0048E054 /* noteWidgetExtension.entitlements */,
 				323D8115E0F49B8B5DE83293 /* noteLlm */,
+				98F1FEBF2F92B3DF0048E054 /* noteWidget */,
+				98F1FEBA2F92B3DF0048E054 /* Frameworks */,
 				E1A6C05452931F348EB8928B /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		98F1FEBA2F92B3DF0048E054 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98F1FEBB2F92B3DF0048E054 /* WidgetKit.framework */,
+				98F1FEBD2F92B3DF0048E054 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CC0001000000000000000001 /* App */ = {
@@ -146,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				041A80C349E835A83C02E318 /* noteLlm.app */,
+				98F1FEB92F92B3DF0048E054 /* noteWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,10 +229,12 @@
 				7D258412627EED332F5689D7 /* Sources */,
 				5069DE8E5DFC97FEFC1844E4 /* Frameworks */,
 				E3C6AD1F68A2D09BAF49E5EE /* Resources */,
+				98F1FECC2F92B3E00048E054 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				98F1FECA2F92B3E00048E054 /* PBXTargetDependency */,
 			);
 			name = noteLlm;
 			packageProductDependencies = (
@@ -174,6 +245,28 @@
 			productReference = 041A80C349E835A83C02E318 /* noteLlm.app */;
 			productType = "com.apple.product-type.application";
 		};
+		98F1FEB82F92B3DF0048E054 /* noteWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98F1FED02F92B3E00048E054 /* Build configuration list for PBXNativeTarget "noteWidgetExtension" */;
+			buildPhases = (
+				98F1FEB52F92B3DF0048E054 /* Sources */,
+				98F1FEB62F92B3DF0048E054 /* Frameworks */,
+				98F1FEB72F92B3DF0048E054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				98F1FEBF2F92B3DF0048E054 /* noteWidget */,
+			);
+			name = noteWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = noteWidgetExtension;
+			productReference = 98F1FEB92F92B3DF0048E054 /* noteWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,11 +274,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					323D8115E0F49B8B5DE83293T = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					98F1FEB82F92B3DF0048E054 = {
+						CreatedOnToolsVersion = 26.4;
 					};
 				};
 			};
@@ -199,19 +295,26 @@
 			);
 			mainGroup = 82B079E207D4D62E801B60E2;
 			packageReferences = (
-				DD0001000000000000000001 /* XCRemoteSwiftPackageReference "LocalLLMClient" */,
-				DD0007000000000000000001 /* XCRemoteSwiftPackageReference "mlx-swift-examples" */,
+				DD0001000000000000000001 /* XCLocalSwiftPackageReference "Vendor/LocalLLMClient" */,
 			);
 			productRefGroup = E1A6C05452931F348EB8928B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				323D8115E0F49B8B5DE83293T /* noteLlm */,
+				98F1FEB82F92B3DF0048E054 /* noteWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		98F1FEB72F92B3DF0048E054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3C6AD1F68A2D09BAF49E5EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +349,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98F1FEB52F92B3DF0048E054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98F1FECA2F92B3E00048E054 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98F1FEB82F92B3DF0048E054 /* noteWidgetExtension */;
+			targetProxy = 98F1FEC92F92B3E00048E054 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1260F536F02ACCDA0AAA4DB4 /* Release */ = {
@@ -254,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = noteLlm/noteLlm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"noteLlm/Preview Content\"";
@@ -283,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = noteLlm/noteLlm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"noteLlm/Preview Content\"";
@@ -361,6 +481,75 @@
 			};
 			name = Release;
 		};
+		98F1FECD2F92B3E00048E054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CODE_SIGN_ENTITLEMENTS = noteWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR666D9B2;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = noteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = noteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.notellm.noteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98F1FECE2F92B3E00048E054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CODE_SIGN_ENTITLEMENTS = noteWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR666D9B2;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = noteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = noteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.notellm.noteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D4A1D8A037CC3AD037DFC4B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,6 +624,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		98F1FED02F92B3E00048E054 /* Build configuration list for PBXNativeTarget "noteWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98F1FECD2F92B3E00048E054 /* Debug */,
+				98F1FECE2F92B3E00048E054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E1A6C05452931F348EB8928B2 /* Build configuration list for PBXProject "noteLlm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -446,30 +644,22 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		DD0001000000000000000001 /* XCLocalSwiftPackageReference "LocalLLMClient" */ = {
+/* Begin XCLocalSwiftPackageReference section */
+		DD0001000000000000000001 /* XCLocalSwiftPackageReference "Vendor/LocalLLMClient" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Vendor/LocalLLMClient;
 		};
-		DD0006000000000000000001 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/huggingface/swift-transformers";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		DD0002000000000000000001 /* LocalLLMClient */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD0001000000000000000001 /* XCRemoteSwiftPackageReference "LocalLLMClient" */;
+			package = DD0001000000000000000001 /* XCLocalSwiftPackageReference "Vendor/LocalLLMClient" */;
 			productName = LocalLLMClient;
 		};
 		DD0003000000000000000001 /* LocalLLMClientMLX */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD0001000000000000000001 /* XCRemoteSwiftPackageReference "LocalLLMClient" */;
+			package = DD0001000000000000000001 /* XCLocalSwiftPackageReference "Vendor/LocalLLMClient" */;
 			productName = LocalLLMClientMLX;
 		};
 /* End XCSwiftPackageProductDependency section */

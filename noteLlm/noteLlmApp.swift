@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 @main
 struct DailyNoteApp: App {
@@ -11,6 +12,7 @@ struct DailyNoteApp: App {
             RootView()
                 .environmentObject(appState)
                 .environmentObject(aiViewModel)
+                .onAppear { WidgetCenter.shared.reloadAllTimelines() }
         }
         .modelContainer(for: Note.self)
     }

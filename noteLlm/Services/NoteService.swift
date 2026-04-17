@@ -4,7 +4,7 @@ import SwiftData
 final class NoteService {
     private let appGroupID: String
 
-    init(appGroupID: String = "group.com.dailynote.app") {
+    init(appGroupID: String = "group.noteLlm") {
         self.appGroupID = appGroupID
     }
 
@@ -14,6 +14,7 @@ final class NoteService {
             predicate: #Predicate { $0.date == startOfDay }
         )
         if let existing = try? context.fetch(descriptor).first {
+            syncToWidget(content: existing.content, date: existing.date)
             return existing
         }
         let note = Note(date: startOfDay)
