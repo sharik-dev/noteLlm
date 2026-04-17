@@ -26,10 +26,12 @@ final class AIViewModel: ObservableObject {
             for await token in tokenStream {
                 guard !Task.isCancelled else { break }
                 accumulated += token
-                aiOutput = accumulated
+                aiOutput = sanitizeModelOutput(accumulated)
             }
             isThinking = false
-            suggestionChips = extractQuestions(from: accumulated)
+            let cleanedOutput = sanitizeModelOutput(accumulated)
+            aiOutput = cleanedOutput
+            suggestionChips = extractQuestions(from: cleanedOutput)
         }
     }
 
@@ -44,5 +46,28 @@ final class AIViewModel: ObservableObject {
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { $0.hasSuffix("?") && $0.count > 10 }
         return Array(questions.suffix(3))
+    }
+
+    private func sanitizeModelOutput(_ text: String) -> String {
+        text
+            .components(separatedBy: .newlines)
+            .map(sanitizeLine)
+            .joined(separator: "\n")
+            .replacingOccurrences(of: "**", with: "")
+            .replacingOccurrences(of: "*", with: "")
+    }
+
+    private func sanitizeLine(_ line: String) -> String {
+        var result = line.trimmingCharacters(in: .whitespaces)
+
+        if result.hasPrefix("- ") {
+            result.removeFirst(2)
+        } else if result.hasPrefix("* ") {
+            result.removeFirst(2)
+        } else if result.hasPrefix("• ") {
+            result.removeFirst(2)
+        }
+
+        return result
     }
 }

@@ -15,28 +15,33 @@ struct AIPanelView: View {
                 Spacer()
             }
 
-            if aiViewModel.aiOutput.isEmpty && !aiViewModel.isThinking {
-                Text("Start writing — your AI companion will reflect with you after a pause.")
-                    .font(.footnote)
-                    .foregroundStyle(.tertiary)
-                    .italic()
-            } else {
-                Text(aiViewModel.aiOutput)
-                    .font(.footnote)
-                    .foregroundStyle(.primary)
-                    .lineSpacing(4)
-                    .animation(.easeInOut(duration: 0.1), value: aiViewModel.aiOutput)
-            }
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 12) {
+                    if aiViewModel.aiOutput.isEmpty && !aiViewModel.isThinking {
+                        Text("Start writing — your AI companion will reflect with you after a pause.")
+                            .font(.footnote)
+                            .foregroundStyle(.tertiary)
+                            .italic()
+                    } else {
+                        Text(aiViewModel.aiOutput)
+                            .font(.footnote)
+                            .foregroundStyle(.primary)
+                            .lineSpacing(4)
+                            .lineLimit(nil)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .animation(.easeInOut(duration: 0.1), value: aiViewModel.aiOutput)
+                    }
 
-            if !aiViewModel.suggestionChips.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(aiViewModel.suggestionChips, id: \.self) { chip in
-                            ChipView(text: chip)
+                    if !aiViewModel.suggestionChips.isEmpty {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(aiViewModel.suggestionChips, id: \.self) { chip in
+                                ChipView(text: chip)
+                            }
                         }
                     }
                 }
             }
+            .frame(maxHeight: 200)
         }
         .padding(16)
         .background(
@@ -75,13 +80,15 @@ struct ChipView: View {
 
     var body: some View {
         Text(text)
-            .font(.caption2)
+            .font(.caption)
             .foregroundStyle(.secondary)
-            .lineLimit(2)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
             .background(
-                Capsule()
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
                     .fill(Color(.systemGray6))
             )
     }

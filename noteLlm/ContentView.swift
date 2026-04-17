@@ -9,6 +9,7 @@ struct ContentView: View {
         VStack(spacing: 0) {
             toolbar
             AIPanelView()
+                .layoutPriority(1)
             Divider()
                 .padding(.top, 8)
             NoteEditorView()

@@ -3,22 +3,21 @@ import LocalLLMClient
 import LocalLLMClientMLX
 
 final class LocalLLMService: LLMServiceProtocol {
-    private var client: (any LLMClientProtocol)?
+    private var client: AnyLLMClient?
     private(set) var isModelReady = false
 
     func loadModel(modelID: String, progressHandler: @escaping (Double) -> Void) async throws {
-        let downloader = FileDownloader(source: .huggingFace(id: modelID, globs: nil))
+        let model = LLMSession.DownloadModel.mlx(id: modelID)
 
-        if FileManager.default.fileExists(atPath: downloader.destination.path) {
-            // Model already cached — skip download
+        if model.isDownloaded {
             progressHandler(1.0)
         } else {
-            try await downloader.download { progress in
+            try await model.downloadModel { progress in
                 progressHandler(progress)
             }
         }
 
-        client = try await LocalLLMClient.mlx(configuration: .init(modelPath: downloader.destination.path))
+        client = try await AnyLLMClient(LocalLLMClient.mlx(url: model.modelPath))
         isModelReady = true
     }
 
@@ -28,13 +27,13 @@ final class LocalLLMService: LLMServiceProtocol {
                 continuation.finish()
                 return
             }
-            let input = LLMInput.chat(messages: [
+            let input = LLMInput.chat([
                 .system(PromptBuilder.systemPrompt),
                 .user(prompt)
             ])
-            Task {
+            Task { 
                 do {
-                    let tokenStream = try await client.textStream(input: input)
+                    let tokenStream = try await client.textStream(from: input)
                     for try await token in tokenStream {
                         continuation.yield(token)
                     }
