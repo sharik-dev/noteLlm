@@ -1,11 +1,11 @@
 [
   {
     "role": "mobile",
-    "model": "sonnet",
+    "model": "o4-mini",
     "customName": "Mobile Developer",
     "isPersonal": false,
     "id": "agent-1776367978358-9qu9vo",
-    "claudeSessionId": "b4c10ca7-3f36-465e-97f9-cfb2c7cf5073"
+    "provider": "codex"
   },
   {
     "role": "custom",
