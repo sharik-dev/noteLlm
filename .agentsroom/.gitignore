@@ -2,3 +2,5 @@
 *-personal.json
 agents-local.json
 sessions/
+*-cache.json
+*.migrated.json
