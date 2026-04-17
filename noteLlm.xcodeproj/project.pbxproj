@@ -447,20 +447,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DD0001000000000000000001 /* XCRemoteSwiftPackageReference "LocalLLMClient" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tattn/LocalLLMClient";
-			requirement = {
-				kind = revision;
-				revision = 085e28774c978d7e71b358431e5c81aed363e006;
-			};
+		DD0001000000000000000001 /* XCLocalSwiftPackageReference "LocalLLMClient" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Vendor/LocalLLMClient;
 		};
-		DD0007000000000000000001 /* XCRemoteSwiftPackageReference "mlx-swift-examples" */ = {
+		DD0006000000000000000001 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ml-explore/mlx-swift-examples";
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
 			requirement = {
-				kind = revision;
-				revision = b071763;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

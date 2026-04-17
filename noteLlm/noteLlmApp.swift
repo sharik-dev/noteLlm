@@ -18,26 +18,26 @@ struct DailyNoteApp: App {
 
 struct RootView: View {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var aiViewModel: AIViewModel
 
     var body: some View {
-        switch appState.modelLoadingState {
-        case .notLoaded, .downloading:
-            ModelDownloadView()
-        case .loaded:
-            ContentView()
-        case .failed(let msg):
-            VStack(spacing: 16) {
-                Text("Model failed to load")
-                    .font(.headline)
-                Text(msg)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Button("Retry") {
-                    appState.modelLoadingState = .notLoaded
-                }
-                .buttonStyle(.bordered)
+        ContentView()
+            .task(id: appState.selectedModelSize) {
+                let modelID = appState.selectedModelSize.rawValue
+                appState.modelLoadingState = .downloading(progress: 0)
+                aiViewModel.ensureModelLoaded(
+                    modelID: modelID,
+                    progressHandler: { progress in
+                        Task { @MainActor in
+                            appState.modelLoadingState = progress >= 1 ? .loaded : .downloading(progress: progress)
+                        }
+                    },
+                    failureHandler: { message in
+                        Task { @MainActor in
+                            appState.modelLoadingState = .failed(message)
+                        }
+                    }
+                )
             }
-            .padding()
-        }
     }
 }

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AIPanelView: View {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var aiViewModel: AIViewModel
     @State private var dotPulse = false
 
@@ -18,11 +19,11 @@ struct AIPanelView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 12) {
                     if aiViewModel.aiOutput.isEmpty && !aiViewModel.isThinking {
-                        Text("Start writing — your AI companion will reflect with you after a pause.")
+                        Text(helperText)
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
                             .italic()
-                    } else {
+                    } else if aiViewModel.suggestionChips.isEmpty {
                         Text(aiViewModel.aiOutput)
                             .font(.footnote)
                             .foregroundStyle(.primary)
@@ -63,7 +64,7 @@ struct AIPanelView: View {
                 .animation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: dotPulse)
                 .onAppear { dotPulse = true }
                 .onDisappear { dotPulse = false }
-        } else if !aiViewModel.aiOutput.isEmpty {
+        } else if !aiViewModel.aiOutput.isEmpty || !aiViewModel.suggestionChips.isEmpty {
             Circle()
                 .fill(Color.green)
                 .frame(width: 8, height: 8)
@@ -71,6 +72,19 @@ struct AIPanelView: View {
             Circle()
                 .fill(Color.secondary.opacity(0.4))
                 .frame(width: 8, height: 8)
+        }
+    }
+
+    private var helperText: String {
+        switch appState.modelLoadingState {
+        case .downloading:
+            return "The AI model is downloading in the background. You can keep writing."
+        case .failed:
+            return "The AI model failed to load. Keep writing and retry later from settings."
+        case .loaded:
+            return "Start writing — your AI companion will respond with questions after a pause."
+        case .notLoaded:
+            return "The AI model is preparing in the background. You can keep writing."
         }
     }
 }

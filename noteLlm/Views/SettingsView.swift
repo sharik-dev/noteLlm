@@ -15,7 +15,7 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.inline)
 
-                    Text("Changing the model requires restarting the app to re-download.")
+                    Text("Changing the model triggers a background download for the new model.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
